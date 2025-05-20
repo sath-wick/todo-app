@@ -20,7 +20,6 @@ app.post('/todo', async(req,res)=>{
     try {
         const todoTitle = req.body.title
         const todoTask = await pool.query('INSERT INTO TODO (title) VALUES ($1) RETURNING *',[todoTitle])
-        res.send(process.env.DB_CON_STR)
         res.json(todoTask.rows[0])
         
     } catch (error) {
