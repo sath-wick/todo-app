@@ -76,7 +76,7 @@ app.get('/todo', async (req,res)=>{
     }
 })
 
-app.get(/^\/[\w\-\/]*$/, (req, res) => {
+app.get(/^\/(?!todo).*/, (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
