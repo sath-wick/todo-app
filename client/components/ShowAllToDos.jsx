@@ -23,7 +23,7 @@ useEffect(()=>{
 
 const deleteTask = async(taskId)=>{
     try {
-        await fetch(`http://localhost:5000/todo/${Number(taskId)}`,{
+        await fetch(`https://todo-app-prod-2004.up.railway.app/todo/${Number(taskId)}`,{
             method: "DELETE"
         })
         setAllTasks(prev=> prev.filter(task=> task.id !== taskId))
@@ -42,7 +42,7 @@ const editTask = async(taskId)=>{
     if (taskValueList[taskId] === "") return //return if task title is empty
     try {
         const body = {title : taskValueList[taskId]}
-        const response = await fetch(`http://localhost:5000/todo/${Number(taskId)}`,{
+        const response = await fetch(`https://todo-app-prod-2004.up.railway.app/todo/${Number(taskId)}`,{
             method: "PUT",
             body: JSON.stringify(body),
             headers:{"Content-Type" : "application/json"} 

@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv')
 const pool = require('./db')
-
+const path = require('path')
 dotenv.config()
 
 const app = express()
@@ -12,6 +12,7 @@ app.get('/',(req,res)=>{
     res.send('Up and runnin\'')
 })
 
+app.use(express.static(path.join(__dirname,'client','build')))
 
 //Routes
 
@@ -73,6 +74,10 @@ app.get('/todo', async (req,res)=>{
         console.error(error.message);
         
     }
+})
+
+app.get("*",(req,res)=>{
+    res.sendFile(path.join(__dirname,'client','build','index.html'))
 })
 
 app.listen(5000,()=>{

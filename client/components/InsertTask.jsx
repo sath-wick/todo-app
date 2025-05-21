@@ -8,7 +8,7 @@ export function InsertTask({updateAllTasks}){
         e.preventDefault()
         try {
             const body = { title : task}
-            const response  = await fetch('http://localhost:5000/todo',{
+            const response  = await fetch('https://todo-app-prod-2004.up.railway.app/todo',{
                 method: "POST",
                 body: JSON.stringify(body),
                 headers: { "Content-Type" : "application/json"}
