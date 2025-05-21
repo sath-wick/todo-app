@@ -76,9 +76,10 @@ app.get('/todo', async (req,res)=>{
     }
 })
 
-app.get("^\/[\w\-\/]*$",(req,res)=>{
-    res.sendFile(path.join(__dirname,'client','build','index.html'))
-})
+app.get(/^\/[\w\-\/]*$/, (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
+
 
 app.listen(5000,()=>{
     console.log("listening");
