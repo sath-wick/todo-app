@@ -9,7 +9,7 @@ function App() {
   const fetchTasks = async () => {
     try {
       console.log("Fetching tasks...");
-      const response = await fetch("http://localhost:5000/todo");
+      const response = await fetch("https://todo-app-prod-2004.up.railway.app/todo");
       const jsonData = await response.json();
       setAllTasks(jsonData);
     } catch (err) {
