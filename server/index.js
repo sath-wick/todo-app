@@ -17,6 +17,7 @@ app.use(express.static(path.join(__dirname,'client','build')))
 
 app.use('/auth',loginController)
 
+
 //Create a Todo
 app.post('/todo', async(req,res)=>{
     try {
@@ -82,7 +83,7 @@ app.get(/^\/(?!todo).*/, (req, res) => {
 });
 
 
-app.listen(5000,()=>{
+app.listen(POST,()=>{
     console.log("listening");
     
 })
