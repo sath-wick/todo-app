@@ -1,4 +1,4 @@
-const { apiPOST } = require('../utils/api')
+import { apiPOST } from '../utils/api'
 
 export default async function validateLogin(username, password){
     if (!username || !password) return
