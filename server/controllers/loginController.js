@@ -21,4 +21,4 @@ router.post('/login-user',async(req,res)=>{
     }
 })
 
-modules.export = router;
+module.export = router;
