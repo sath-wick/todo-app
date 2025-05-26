@@ -19,4 +19,4 @@ function verifyToken(token){
     }   
 }
 
-modules.export = {generateToken, verifyToken}
+module.exports = {generateToken, verifyToken}
