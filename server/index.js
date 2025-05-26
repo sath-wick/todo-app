@@ -83,7 +83,7 @@ app.get(/^\/(?!todo).*/, (req, res) => {
 });
 
 
-app.listen(POST,()=>{
+app.listen(PORT,()=>{
     console.log("listening");
     
 })
