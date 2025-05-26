@@ -3,6 +3,10 @@ const cors = require('cors');
 const dotenv = require('dotenv')
 const pool = require('./db')
 const path = require('path')
+
+const PORT = process.env.PORT
+
+const loginController = require('./controllers/loginController') 
 dotenv.config()
 
 const app = express()
@@ -11,7 +15,7 @@ app.use(express.json())
 
 app.use(express.static(path.join(__dirname,'client','build')))
 
-//Routes
+app.use('/auth',loginController)
 
 //Create a Todo
 app.post('/todo', async(req,res)=>{

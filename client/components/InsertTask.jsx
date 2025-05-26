@@ -32,13 +32,9 @@ export function InsertTask({updateAllTasks}){
             onSubmit={insertTask}>
                 <input
                 type="text"
-                className="
-                    border-2 border-gray-700
-                    w-70 px-2 bg-gray-500/10 rounded-lg
-                    transition-[border-width]
-                    focus:outline-none
-                    focus:border-b-4
-                "
+                style={{
+                    "--accent-color" : "grey"
+                }}
 
                 onChange={e => {
                     setTask(e.target.value)
