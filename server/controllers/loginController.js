@@ -21,4 +21,4 @@ router.post('/login-user',async(req,res)=>{
     }
 })
 
-export default router
+modules.export = router;
