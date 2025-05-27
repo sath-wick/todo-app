@@ -27,12 +27,12 @@ export default function RegisterComponent({isOnLogin, showLogin}) {
             }
             
             try {
-                const getRes = await apiGET(`/find-user/${registerEmail}`)
+                const getRes = await apiGET(`/auth/find-user/${registerEmail}`)
                 if(getRes[0]) {
                     setIsExistingUser(true)
                     return
                 }
-                const response = await apiPOST('/register-user',{
+                const response = await apiPOST('auth/register-user',{
                     fullname : registerFullName,
                     email : registerEmail,
                     password : registerPassword

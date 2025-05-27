@@ -9,8 +9,6 @@ export async function apiGET(path) {
 
   const text = await response.text();
   console.log('RAW RESPONSE TEXT:', text); // Check what you really got
-  console.log('API_URL:', BASE_URL); // Check what you really got
-
   try {
     const data = JSON.parse(text);
     return data;
