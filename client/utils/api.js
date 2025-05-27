@@ -1,15 +1,24 @@
 const BASE_URL = import.meta.env.VITE_API_URL;
 
 export async function apiGET(path) {
-  const response = await fetch(`${BASE_URL}${path}`,{
-    method: "GET",
-    });
-    
-  if (!response.ok) throw new Error(`GET ${path} failed: ${response.status}`);
-  const data = await response.json();
-  console.log(data);
-  return data
+  const response = await fetch(`${BASE_URL}${path}`, { method: "GET" });
+
+  if (!response.ok) {
+    throw new Error(`GET ${path} failed: ${response.status}`);
+  }
+
+  const text = await response.text();
+  console.log('RAW RESPONSE TEXT:', text); // Check what you really got
+
+  try {
+    const data = JSON.parse(text);
+    return data;
+  } catch (err) {
+    console.error('JSON parse error:', err);
+    throw err; // rethrow or handle gracefully
+  }
 }
+
 
 export async function apiPOST(path, body = {}) {
   const response = await fetch(`${BASE_URL}${path}`, {

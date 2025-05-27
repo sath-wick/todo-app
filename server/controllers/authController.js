@@ -36,12 +36,13 @@ router.post('/register-user', async(req,res)=>{
 router.get('/find-user/:email', async (req, res) => {
   try {
     const { email } = req.params;
-    const response = await pool.query("SELECT * FROM users WHERE emailid = $1", [email]);
-    res.status(200).json(response.rows);
+    const response = await pool.query("SELECT * FROM USERS WHERE emailid = $1", [email]);
+    return res.status(200).json(response.rows);
   } catch (err) {
     console.error(err.message);
-    res.status(500).json({ message: "DB query failed" });
+    return res.status(500).json({ message: "DB query failed" });
   }
 });
+
 
 module.exports = router;
