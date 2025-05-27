@@ -6,7 +6,7 @@ const path = require('path')
 
 const PORT = process.env.PORT
 
-const loginController = require('./controllers/loginController') 
+const authController = require('./controllers/authController') 
 dotenv.config()
 
 const app = express()
@@ -15,7 +15,7 @@ app.use(express.json())
 
 app.use(express.static(path.join(__dirname,'client','build')))
 
-app.use('/auth',loginController)
+app.use('/auth',authController)
 
 
 //Create a Todo

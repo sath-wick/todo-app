@@ -1,7 +1,7 @@
 import React from "react";
 import {Router, Route, Routes, useNavigate} from 'react-router-dom'
 import TypingEffect from "./TypingEffect";
-import UserLogin from "./UserLogin";
+import AuthenticateUser from "./AuthenticateUser";
 
 const Homepage = () => {
   const navigate = useNavigate()
