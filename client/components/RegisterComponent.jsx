@@ -27,7 +27,7 @@ export default function RegisterComponent({isOnLogin, showLogin}) {
             }
             
             try {
-                const getRes = await apiGET(`/find-user?email=${encodeURIComponent(registerEmail)}`)
+                const getRes = await apiGET(`/find-user/${registerEmail}`)
                 if(getRes[0]) {
                     setIsExistingUser(true)
                     return

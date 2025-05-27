@@ -33,9 +33,9 @@ router.post('/register-user', async(req,res)=>{
     }
 })
 
-router.get('/find-user', async (req, res) => {
+router.get('/find-user/:email', async (req, res) => {
   try {
-    const { email } = req.query;
+    const { email } = req.params;
     const response = await pool.query("SELECT * FROM USERS WHERE emailid = $1", [email]);
     res.status(200).json(response.rows);
   } catch (err) {
