@@ -4,6 +4,8 @@ export async function apiGET(path) {
   const response = await fetch(`${BASE_URL}${path}`,{
     method: "GET",
     });
+    console.log(response);
+    
   if (!response.ok) throw new Error(`GET ${path} failed: ${response.status}`);
   return await response.json();
 }
